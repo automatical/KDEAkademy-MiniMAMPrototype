@@ -1,0 +1,89 @@
+<h1>Processing Tasks</h1>
+
+<br />
+
+<h3>Video Completion Jobs</h3>
+
+<% if @completejobs.count > 0 %>
+  <table class="table">
+    <tr>
+      <th>Job Id</th><th>Job Type</th><th>Event</th><th>Processing</th>
+    </tr>
+    <% @completejobs.each do |job| %>
+      <tr class="video-<%= job['processing'] ? "processing" : "waiting" %>">
+         <td><%= job['id'] %></td>
+         <td><%= job['type'] %></td>
+         <td style="max-width: 380px"><%= job['data']['event'] %>: <%= @events[job['data']['event']]['title'] %></td>
+         <td><%= job['processing'] ? "Processing" : "Waiting" %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>No Proxy Jobs in Queue or In Progress</p>
+<% end %>
+
+<br />
+
+<h3>Proxy Jobs</h3>
+
+<% if @proxyjobs.count > 0 %>
+  <table class="table">
+    <tr>
+      <th>Job Id</th><th>Job Type</th><th>Filename</th><th>Processing</th>
+    </tr>
+    <% @proxyjobs.each do |job| %>
+      <tr class="video-<%= job['processing'] ? "processing" : "waiting" %>">
+         <td><%= job['id'] %></td>
+         <td><%= job['type'] %></td>
+         <td><%= job['data']['filename'] %></td>
+         <td><%= job['processing'] ? "Processing" : "Waiting" %></td>
+      </tr>
+    </table>
+  <% end %>
+<% else %>
+  <p>No Proxy Jobs in Queue or In Progress</p>
+<% end %>
+
+<br />
+
+<h3>Thumbnail Jobs</h3>
+
+<% if @thumbnailjobs.count > 0 %>
+  <table class="table">
+    <tr>
+      <th>Job Id</th><th>Job Type</th><th>Filename</th><th>Processing</th>
+    </tr>
+    <% @thumbnailjobs.each do |job| %>
+      <tr class="video-<%= job['processing'] ? "processing" : "waiting" %>">
+         <td><%= job['id'] %></td>
+         <td><%= job['type'] %></td>
+         <td><%= job['data']['filename'] %></td>
+         <td><%= job['processing'] ? "Processing" : "Waiting" %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>No Thumbnail Jobs in Queue or In Progress</p>
+<% end %>
+
+<br />
+
+<h3>Concatenate Jobs</h3>
+
+<% if @thumbnailjobs.count > 0 %>
+  <table class="table">
+    <tr>
+      <th>Job Id</th><th>Job Type</th><th>Bucket</th><th>Processing</th>
+    </tr>
+    <% @thumbnailjobs.each do |job| %>
+      <tr class="video-<%= job['processing'] ? "processing" : "waiting" %>">
+         <td><%= job['id'] %></td>
+         <td><%= job['type'] %></td>
+         <td><%= job['data']['bucket'] %></td>
+         <td><%= job['processing'] ? "Processing" : "Waiting" %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>No Concatenate Jobs in Queue or In Progress</p>
+<% end %>

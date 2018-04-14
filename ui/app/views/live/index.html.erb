@@ -1,0 +1,34 @@
+<h1>Live</h1>
+
+<div class="container">
+	<div class="row">
+	  <div class="col-md-6">
+	  	<a href="/live/room/room1">
+		  	<img class="live-update" src="/live/room1.jpg" />
+		  	<br />
+		  	<h3>Room 1</h3>
+	  	</a>
+	  </div>
+	  <div class="col-md-6">
+	  	<a href="/live/room/room2">
+		  	<img class="live-update" src="/live/room1.jpg" />
+		  	<br />
+		  	<h3>Room 2</h3>
+	  	</a>
+	  </div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	function updateScreenshots() {
+		$('.live-update').each(function() {
+			$(this).attr('src', $(this).attr('src') + "?time=" + Date.now())
+		});
+
+		setTimeout(updateScreenshots, 250);
+	}
+
+	$(document).ready(function() {
+		updateScreenshots();
+	})
+</script>

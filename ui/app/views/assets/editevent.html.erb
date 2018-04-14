@@ -1,0 +1,111 @@
+<center>
+
+	<script type="text/javascript">
+		
+		timeMarker = {
+			"bucket": "<%= @bucket %>",
+			"event": <%= @event['id'] %>,
+			"start": 0,
+			"end": 0
+		}
+
+	</script>
+	
+	<h1><%= @assetId %></h1>
+
+	<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+	
+	<video controls id="video" style="width: 100%"></video>
+	<script>
+	  if(Hls.isSupported()) {
+	    var video = document.getElementById('video');
+	    var hls = new Hls();
+	    hls.loadSource("<%= ["", "proxy", @bucket, "all.m3u8"].join("/") %>");
+	    hls.attachMedia(video);
+	    hls.on(Hls.Events.MANIFEST_PARSED,function() {
+	      video.play();
+	  });
+	 }
+	</script>
+
+	<table style="width: 100%" class="table">
+		<tr>
+		   <th>Date</th><th>Title</th><th>Start</th><th>Duration</th><th>Room</th></tr>
+	    </tr>
+		<tr>
+	       <td><%= @event['date'] %></td>
+	       <td><%= @event['title'] %></td>
+	       <td><%= @event['start'] %></td>
+	       <td><%= @event['duration'] %></td>
+	       <td><%= @event['room'] %></td>
+	    </tr>
+	</table>
+
+	<button id="setMarkerStart" class="btn btn-active btn-primary">Set Start Marker</button>
+	<button id="setMarkerEnd" class="btn btn-active btn-primary">Set End Marker</button>
+
+	<br /><br />
+
+	<span id="timeMarkers">Start Marker: 0s, End Marker: 0s</span>
+
+	<br />
+
+	<span id="currentTime">Current Time: 0</span>
+
+	<br /><br />
+
+	<button id="submitJob" class="btn btn-active btn-success" data-action="/actions/assets/editevent/<%= @bucket %>/<%= @event['id'] %>">Submit Job</button>
+
+	<br /><br />
+
+</center>
+
+<script type="text/javascript">
+	var currentTime = function() {
+		$('#currentTime').html("Current Time: " + $('video')[0].currentTime);
+		setTimeout(currentTime, 100)
+	}
+
+	currentTime();
+
+	var timeMarkers = function() {
+		$('#timeMarkers').html("Start Marker: "+timeMarker.start+"s, End Marker: "+timeMarker.end+"s");
+		setTimeout(timeMarkers, 100)
+	}
+
+	timeMarkers();
+
+	$('#setMarkerStart').click(function() {
+		if($('video')[0].currentTime <= timeMarker.start) {
+			alert("Start time must be before end time.")
+			return;
+		}
+
+		timeMarker.start = $('video')[0].currentTime
+	});
+
+	$('#setMarkerEnd').click(function() {
+		if($('video')[0].currentTime <= timeMarker.start) {
+			alert("End time must be after start time.")
+			return;
+		}
+		
+		timeMarker.end = $('video')[0].currentTime
+	});
+
+	$('#submitJob').click(function() {
+		if(!timeMarker.start || !timeMarker.end) {
+			alert("Start Time and End Time must be set")
+			return;
+		}
+		
+		jQuery.ajax({
+			url: $('#submitJob').data('action'),
+			method: "POST",
+			data: timeMarker,
+			complete: function(result){
+		        alert("Build Job Submitted");
+		    }
+		});
+	});
+</script>

@@ -1,0 +1,25 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    filewatcher (1.0.1)
+      trollop (~> 2.1, >= 2.1.2)
+    inifile (3.0.0)
+    inotify (1.0.2)
+    multi_json (1.12.2)
+    rethinkdb (2.3.0.2)
+    streamio-ffmpeg (3.0.2)
+      multi_json (~> 1.8)
+    trollop (2.1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  filewatcher (~> 1.0, >= 1.0.1)
+  inifile (~> 3.0)
+  inotify (~> 1.0, >= 1.0.2)
+  rethinkdb (~> 2.3, >= 2.3.0.2)
+  streamio-ffmpeg
+
+BUNDLED WITH
+   1.15.4

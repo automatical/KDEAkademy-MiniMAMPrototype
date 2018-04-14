@@ -1,0 +1,38 @@
+2017-12-07T19:26:37.522917000 0.252863s notice: Recursively removing directory /Users/kcoyle/Development/VideoProcessing/ui/rethinkdb_data/tmp
+2017-12-07T19:26:37.525710000 0.255661s notice: Initializing directory /Users/kcoyle/Development/VideoProcessing/ui/rethinkdb_data
+2017-12-07T19:26:37.525815000 0.255761s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/kcoyle/Development/VideoProcessing/ui/rethinkdb_data' did not already exist or is empty.)
+2017-12-07T19:26:37.525837000 0.255782s notice: Running rethinkdb 2.3.6 (CLANG 8.1.0 (clang-802.0.42))...
+2017-12-07T19:26:37.561269000 0.291216s notice: Running on Darwin 16.7.0 x86_64
+2017-12-07T19:26:37.561408000 0.291366s notice: Loading data from directory /Users/kcoyle/Development/VideoProcessing/ui/rethinkdb_data
+2017-12-07T19:26:37.649783000 0.379728s info: Automatically using cache size of 220 MB
+2017-12-07T19:26:37.651307000 0.381253s notice: Listening for intracluster connections on port 29015
+2017-12-07T19:26:37.653379000 0.383325s notice: Listening for client driver connections on port 28015
+2017-12-07T19:26:37.653488000 0.383434s notice: Listening for administrative HTTP connections on port 8080
+2017-12-07T19:26:37.653491000 0.383436s notice: Listening on cluster addresses: 127.0.0.1, 127.94.0.1, 127.94.0.3, 127.94.0.4, ::1
+2017-12-07T19:26:37.653496000 0.383441s notice: Listening on driver addresses: 127.0.0.1, 127.94.0.1, 127.94.0.3, 127.94.0.4, ::1
+2017-12-07T19:26:37.653498000 0.383443s notice: Listening on http addresses: 127.0.0.1, 127.94.0.1, 127.94.0.3, 127.94.0.4, ::1
+2017-12-07T19:26:37.653501000 0.383446s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-12-07T19:26:37.653504000 0.383450s notice: Server ready, "Kennys_MacBook_Pro_local_h9o" f2ea9a77-3f0b-474f-a2d8-e5e77d1ea3b9
+2017-12-07T19:26:57.675788000 20.405298s notice: Server got SIGINT from pid 439, uid 501; shutting down...
+2017-12-07T19:26:57.676903000 20.406413s notice: Shutting down client connections...
+2017-12-07T19:26:57.679096000 20.408606s notice: All client connections closed.
+2017-12-07T19:26:57.679121000 20.408631s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2017-12-07T19:26:57.683012000 20.412523s notice: Storage engine shut down.
+2017-12-07T22:45:46.429893000 0.196567s notice: Running rethinkdb 2.3.6 (CLANG 8.1.0 (clang-802.0.42))...
+2017-12-07T22:45:46.462216000 0.228886s notice: Running on Darwin 16.7.0 x86_64
+2017-12-07T22:45:46.462266000 0.228935s notice: Loading data from directory /Users/kcoyle/Development/VideoProcessing/ui/rethinkdb_data
+2017-12-07T22:45:46.489465000 0.256135s info: Automatically using cache size of 100 MB
+2017-12-07T22:45:46.489478000 0.256148s warn: Cache size is very low and may impact performance.
+2017-12-07T22:45:46.490805000 0.257476s notice: Listening for intracluster connections on port 29015
+2017-12-07T22:45:46.493271000 0.259941s notice: Listening for client driver connections on port 28015
+2017-12-07T22:45:46.493386000 0.260056s notice: Listening for administrative HTTP connections on port 8080
+2017-12-07T22:45:46.493388000 0.260057s notice: Listening on cluster addresses: 127.0.0.1, 127.94.0.1, 127.94.0.3, 127.94.0.4, ::1
+2017-12-07T22:45:46.493393000 0.260062s notice: Listening on driver addresses: 127.0.0.1, 127.94.0.1, 127.94.0.3, 127.94.0.4, ::1
+2017-12-07T22:45:46.493394000 0.260064s notice: Listening on http addresses: 127.0.0.1, 127.94.0.1, 127.94.0.3, 127.94.0.4, ::1
+2017-12-07T22:45:46.493397000 0.260067s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-12-07T22:45:46.493400000 0.260070s notice: Server ready, "Kennys_MacBook_Pro_local_h9o" f2ea9a77-3f0b-474f-a2d8-e5e77d1ea3b9
+2017-12-08T08:19:58.807027000 2410.863537s notice: Server got SIGINT from pid 439, uid 501; shutting down...
+2017-12-08T08:19:58.807423000 2410.863932s notice: Shutting down client connections...
+2017-12-08T08:19:58.809643000 2410.866152s notice: All client connections closed.
+2017-12-08T08:19:58.809652000 2410.866161s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2017-12-08T08:19:58.813682000 2410.870191s notice: Storage engine shut down.

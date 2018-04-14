@@ -1,0 +1,33 @@
+<center>
+	
+	<h1><%= @assetId %></h1>
+
+	<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+	
+	<video controls id="video" style="width: 100%"></video>
+	<script>
+	  if(Hls.isSupported()) {
+	    var video = document.getElementById('video');
+	    var hls = new Hls();
+	    hls.loadSource("<%= ["", "proxy", @bucket, "all.m3u8"].join("/") %>");
+	    hls.attachMedia(video);
+	    hls.on(Hls.Events.MANIFEST_PARSED,function() {
+	      video.play();
+	  });
+	 }
+	</script>
+
+	<br />
+
+	<span id="currentTime">Current Time: 0</span>
+
+</center>
+
+<script type="text/javascript">
+	var currentTime = function() {
+		$('#currentTime').html("Current Time: " + $('video')[0].currentTime);
+		setTimeout(currentTime, 100)
+	}
+
+	currentTime();
+</script>

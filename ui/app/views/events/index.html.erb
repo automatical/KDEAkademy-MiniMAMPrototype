@@ -1,0 +1,30 @@
+<h1>Event Listing</h1>
+
+<table class="table">
+	<tr>
+    <th>Event Id</th>
+    <th>Date</th>
+    <th>Title</th>
+    <th>Start</th>
+    <th>Duration</th>
+    <th>Room</th>
+    <th>Actioned</th>
+    <th></th>
+	</tr>
+	<% @events.each do |event| %>
+    <tr>
+       <td><%= event['id'] %></td>
+       <td><%= event['date'] %></td>
+       <td style="max-width: 125px"><%= event['title'] %></td>
+       <td><%= event['start'] %></td>
+       <td><%= event['duration'] %></td>
+       <td><%= event['room'] %></td>
+       <td><%= event['processing'] || event['processed'] ? "Yes" : "No" %></td>
+       <td>
+        <% @buckets.each do |bucket| %>
+          <a class="btn btn-sm btn-primary" href="/assets/editevent/<%= bucket['bucket'] %>/<%=event['id']%>"><%= bucket['bucket'] %></a>
+        <% end %>
+       </td>
+    </tr>
+	<% end %>
+</table>

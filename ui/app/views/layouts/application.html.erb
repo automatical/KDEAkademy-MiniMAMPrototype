@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Conference Video Manager</title>
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+      <a class="navbar-brand" href="/">Video Manager</a>
+      
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item <%= current_page?(:controller => 'dashboard') ? 'active' : '' %>">
+            <a class="nav-link" href="/">Dashboard</a>
+          </li>
+          <li class="nav-item <%= current_page?(:controller => 'events') ? 'active' : '' %>">
+            <a class="nav-link" href="/events">Events</a>
+          </li>
+          <li class="nav-item <%= current_page?(:controller => 'assets') ? 'active' : '' %>">
+            <a class="nav-link" href="/assets">Assets</a>
+          </li>
+          <li class="nav-item <%= current_page?(:controller => 'live') ? 'active' : '' %>">
+            <a class="nav-link" href="/live">Live</a>
+          </li>
+          <li class="nav-item <%= current_page?(:controller => 'jobs') ? 'active' : '' %>">
+            <a class="nav-link" href="/jobs">Jobs</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+      <%= yield %>
+    </main>
+
+  </body>
+</html>

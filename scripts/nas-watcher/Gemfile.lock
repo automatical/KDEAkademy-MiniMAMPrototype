@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    filewatcher (1.0.1)
+      trollop (~> 2.1, >= 2.1.2)
+    inifile (3.0.0)
+    inotify (1.0.2)
+    trollop (2.1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  filewatcher (~> 1.0, >= 1.0.1)
+  inifile (~> 3.0)
+  inotify (~> 1.0, >= 1.0.2)
+
+BUNDLED WITH
+   1.15.4

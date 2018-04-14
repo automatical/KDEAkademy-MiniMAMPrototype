@@ -1,0 +1,13 @@
+<h1>Video Assets</h1>
+
+<% @buckets.each do |bucket| %>
+	<br />
+	<h4><a class="btn btn-primary btn-sm" href="/assets/bucket/<%= bucket['bucket'] %>">All</a> <%= bucket['bucket'] %></h4>
+
+	<% @assets[bucket['bucket']].each do |asset| %>
+		<a href="/assets/view/<%= Base64.encode64(asset['id']) %>" class="asset-list-single">
+			<img class="thumbnail" src="/proxy/<%= asset['bucket'] %>/<%= asset['files']['thumbnail'] %>">
+			<span class="title"><%= asset['filename'].split(".").first %></span>
+		</a>
+	<% end %>
+<% end %>

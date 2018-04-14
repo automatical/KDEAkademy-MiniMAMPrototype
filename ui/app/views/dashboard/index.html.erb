@@ -1,0 +1,10 @@
+<h1>Video Manager</h1>
+<br />
+<table class="table">
+	<% @statistics.keys.each do |key| %>
+		<tr>
+			<td><%= @statistics[key][:key] %></td>
+			<td><%= @statistics[key][:value] %></td>
+		</tr>
+	<% end %>	
+</table>
