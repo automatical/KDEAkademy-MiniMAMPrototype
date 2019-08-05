@@ -38,8 +38,8 @@
          <td><%= job['data']['filename'] %></td>
          <td><%= job['processing'] ? "Processing" : "Waiting" %></td>
       </tr>
+    <% end %>
     </table>
-  <% end %>
 <% else %>
   <p>No Proxy Jobs in Queue or In Progress</p>
 <% end %>

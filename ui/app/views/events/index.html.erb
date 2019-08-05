@@ -19,7 +19,7 @@
        <td><%= event['start'] %></td>
        <td><%= event['duration'] %></td>
        <td><%= event['room'] %></td>
-       <td><%= event['processing'] || event['processed'] ? "Yes" : "No" %></td>
+       <td class="<%= event['processing'] || event['processed'] ? "bg-success" : "bg-warning" %>"><%= event['processing'] || event['processed'] ? "Yes" : "No" %></td>
        <td>
         <% @buckets.each do |bucket| %>
           <a class="btn btn-sm btn-primary" href="/assets/editevent/<%= bucket['bucket'] %>/<%=event['id']%>"><%= bucket['bucket'] %></a>

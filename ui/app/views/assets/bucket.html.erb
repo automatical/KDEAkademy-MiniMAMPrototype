@@ -9,7 +9,7 @@
 	  if(Hls.isSupported()) {
 	    var video = document.getElementById('video');
 	    var hls = new Hls();
-	    hls.loadSource("<%= ["", "proxy", @bucket, "all.m3u8"].join("/") %>");
+	    hls.loadSource("<%= ["", "proxy", @bucket, "video_proxy", "all.m3u8"].join("/") %>");
 	    hls.attachMedia(video);
 	    hls.on(Hls.Events.MANIFEST_PARSED,function() {
 	      video.play();

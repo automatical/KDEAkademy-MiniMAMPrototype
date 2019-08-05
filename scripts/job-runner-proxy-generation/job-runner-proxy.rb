@@ -40,7 +40,7 @@ while true do
 	
 	puts "Creating Proxy File #{activeJob['data']['targetFilename']}"
 	
-	puts `#{"/usr/local/bin/ffmpeg -i #{startFilename} -profile:v baseline -level 3.0 -start_number 0 -hls_time 10 -hls_list_size 0 -f hls #{activeJob['data']['targetFilename']}"}`
+	puts `#{"/usr/local/bin/ffmpeg -i #{startFilename} -t 20 -profile:v baseline -level 3.0 -start_number 0 -hls_time 10 -hls_list_size 0 -f hls #{activeJob['data']['targetFilename']}"}`
 
 	puts "Job Complete"
 
@@ -49,6 +49,6 @@ while true do
 	generateConcatenateJob(activeJob['data']['bucket'], conn)
 end
 
-sleep (5)
+sleep (1)
 
 conn.close

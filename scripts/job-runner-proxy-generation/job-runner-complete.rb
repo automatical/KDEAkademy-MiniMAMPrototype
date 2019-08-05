@@ -55,7 +55,8 @@ def buildConcatenated(eventId, startTime, endTime, m3u8, directory)
 	endtimestamp = Time.at(completeDuration).utc.strftime("%H:%M:%S") + ".000"
 	puts "Start Segment: #{startFile}, Location: #{startFileCut}, End Segment: #{endFile}, Location: #{endFileCut}"
 
-	puts `#{"/usr/local/bin/ffmpeg -i \"concat:" + tsCollection.join("|") + "\" -c copy -ss #{startTimestamp} -t #{endtimestamp} ~/Desktop/#{eventId}.ts"}`
+	puts `#{"/usr/local/bin/ffmpeg -i \"concat:" + tsCollection.join("|") + "\" -c copy -ss #{startTimestamp} -t #{endtimestamp} ~/Desktop/FinalCuts/#{eventId}.ts"}`
+	# puts `#{"/usr/local/bin/ffmpeg -i \"concat:" + tsCollection.join("|") + "\" -ss #{startTimestamp} -t #{endtimestamp} ~/Desktop/FinalCuts/#{eventId}.mp4"}`
 
 	puts "Complete!"
 end
@@ -74,9 +75,21 @@ end
 # }
 
 buckets = {
-	'final' => {
-		:m3u8 => '/Users/kcoyle/Development/VideoProcessing/dropfolders/final/video_proxy/all.m3u8',
-		:directory => '/Users/kcoyle/Development/VideoProcessing/dropfolders/final/video_proxy/'
+	'Room1Day1' => {
+		:m3u8 => '/Users/kennycoyle/Development/KDE/KDEAkademy-MiniMAMPrototype/data/Room1Day1/video_proxy/all.m3u8',
+		:directory => '/Users/kennycoyle/Development/KDE/KDEAkademy-MiniMAMPrototype/data/Room1Day1/video_proxy/'
+	},
+	'Room2Day1' => {
+		:m3u8 => '/Users/kennycoyle/Development/KDE/KDEAkademy-MiniMAMPrototype/data/Room2Day1/video_proxy/all.m3u8',
+		:directory => '/Users/kennycoyle/Development/KDE/KDEAkademy-MiniMAMPrototype/data/Room2Day1/video_proxy/'
+	},
+	'Room1Day2' => {
+		:m3u8 => '/Users/kennycoyle/Development/KDE/KDEAkademy-MiniMAMPrototype/data/Room1Day2/video_proxy/all.m3u8',
+		:directory => '/Users/kennycoyle/Development/KDE/KDEAkademy-MiniMAMPrototype/data/Room1Day2/video_proxy/'
+	},
+	'Room2Day2' => {
+		:m3u8 => '/Users/kennycoyle/Development/KDE/KDEAkademy-MiniMAMPrototype/data/Room2Day2/video_proxy/all.m3u8',
+		:directory => '/Users/kennycoyle/Development/KDE/KDEAkademy-MiniMAMPrototype/data/Room2Day2/video_proxy/'
 	}
 }
 

@@ -20,7 +20,6 @@ class AssetsController < ApplicationController
         .order_by{ |event| event['filename'] }
         .distinct()
         .run(conn)
-
     end
 
   end

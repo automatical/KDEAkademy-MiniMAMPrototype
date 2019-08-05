@@ -2,9 +2,11 @@ require 'filewatcher'
 require 'rethinkdb'
 include RethinkDB::Shortcuts
 
+sleep(5)
+
 conn = r.connect(:db => 'video')
 
-$bucketName = ARGV[0]
+bucketName = ARGV[0]
 watchtarget = ARGV[1]
 
 # Watch Directory for Changes
@@ -74,6 +76,7 @@ end
 threads = {}
 
 Filewatcher.new([watchtarget + "/video/"]).watch do |filename, event|
+  puts threads.keys
   if !threads.key?(filename) then
     puts "Waiting for changes to complete on file: #{filename}"
 
@@ -81,19 +84,19 @@ Filewatcher.new([watchtarget + "/video/"]).watch do |filename, event|
       difference = 1
       while difference > 0 do
         filesize1 = File.size(filename)
-        sleep(1)
+        sleep(5)
         filesize2 = File.size(filename)
         difference = filesize2 - filesize1
       end
 
       puts "Changes ended on file: #{filename}"
 
-      proxy = generateEncodeJob(filename, $bucketName, conn)
+      proxy = generateEncodeJob(filename, bucketName, conn)
       thumbnail = generateThumbnailJob(filename, conn)
-      registerAsset($bucketName, filename, proxy, thumbnail, conn)
+      registerAsset(bucketName, filename, proxy, thumbnail, conn)
 
       difference = 0
+      threads.delete(filename)
     end
-    threads.delete(filename)
   end
 end

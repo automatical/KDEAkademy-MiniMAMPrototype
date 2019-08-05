@@ -5,7 +5,10 @@ GEM
       trollop (~> 2.1, >= 2.1.2)
     inifile (3.0.0)
     inotify (1.0.2)
+    multi_json (1.12.2)
     rethinkdb (2.3.0.2)
+    streamio-ffmpeg (3.0.2)
+      multi_json (~> 1.8)
     trollop (2.1.2)
 
 PLATFORMS
@@ -16,6 +19,7 @@ DEPENDENCIES
   inifile (~> 3.0)
   inotify (~> 1.0, >= 1.0.2)
   rethinkdb (~> 2.3, >= 2.3.0.2)
+  streamio-ffmpeg
 
 BUNDLED WITH
-   1.17.2
+   1.15.4

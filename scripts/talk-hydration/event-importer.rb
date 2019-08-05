@@ -7,7 +7,7 @@ include RethinkDB::Shortcuts
 conn = r.connect(:db => 'video')
 
 # Fetch schedule data
-uri = URI("https://conf.kde.org/en/akademy2017/public/schedule.json")
+uri = URI("https://conf.kde.org/en/akademy2018/public/schedule.json")
 res = Net::HTTP.get_response(uri)
 
 # Parse response

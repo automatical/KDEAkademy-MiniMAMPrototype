@@ -1,0 +1,49 @@
+version: '2'
+services:
+  db:
+    image: rethinkdb:latest
+    ports:
+      - "8080:8080"
+      - "29015:29015"
+      - "28015:28015"
+  ui:
+    build: ui
+    command: rails server -p 3000 -b 0.0.0.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./ui:/app
+      - ./data:/app/public/proxy
+  # directory-scanner-r1d1:
+  #   build: scripts
+  #   command: ruby /app/job-runner-proxy-generation/main.rb Room1Day1 /data/Room1Day1
+  #   depends_on:
+  #     - 'db'
+  #   volumes:
+  #     - ./scripts:/app
+  #     - ./data:/app/public/proxy
+  # directory-scanner-r1d2:
+  #   build: scripts
+  #   command: ruby /app/job-runner-proxy-generation/main.rb Room1Day2 /data/Room1Day2
+  #   depends_on:
+  #     - 'db'
+  #   volumes:
+  #     - ./scripts:/app
+  #     - ./data:/app/public/proxy
+  # directory-scanner-r2d1:
+  #   build: scripts
+  #   command: ruby /app/job-runner-proxy-generation/main.rb Room2Day1 /data/Room2Day1
+  #   depends_on:
+  #     - 'db'
+  #   volumes:
+  #     - ./scripts:/app
+  #     - ./data:/app/public/proxy
+  # directory-scanner-r2d2:
+  #   build: scripts
+  #   command: ruby /app/job-runner-proxy-generation/main.rb Room2Day2 /data/Room2Day2
+  #   depends_on:
+  #     - 'db'
+  #   volumes:
+  #     - ./scripts:/app
+  #     - ./data:/app/public/proxy
+
